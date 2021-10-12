@@ -43,6 +43,11 @@ Import data from CSV, and XLSX fiiles to MySQL database.
 
   - ### Set-Up
 
+    __Set-up venv__
+    ```shell
+    python3 -m venv env
+    ```
+
     __Enable venv for the project.__
 
     Set your shell to use the venv paths for Python by activating the virtual environment.
