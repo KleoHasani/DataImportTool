@@ -73,10 +73,14 @@ Import data from CSV, and XLSX fiiles to MySQL database.
     ```
 
   - ### Install
+  ```python3
+  pip install -r requirements.txt
+  ```
 
   - ### Start
-
-  - ### Dev
+  ```python3
+  python3 ./src/main.py <command> <path>
+  ```
 
 - ## Test
 
@@ -84,22 +88,3 @@ Import data from CSV, and XLSX fiiles to MySQL database.
 
 ## Usage
 
----
-
-## Tests
-
-<small>Test Example:
-
-| Test        | Name          | Status                                                    |
-| :---------- | :------------ | :-------------------------------------------------------- |
-| ExampleTest | Test 1 - Pass | <p style="color: green; text-align: center;">&#10003;</p> |
-| ExampleTest | Test 2 - Fail | <p style="color: red; text-align: center;">&#65794;</p>   |
-
-</small>
-
----
-
-| Test | Name | Status |
-| :--- | :--- | :----- |
-
----
