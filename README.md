@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="docs/assets/logo.png" width="150" height="200">
+	<img src="docs/assets/logo.png" width="150" height="50">
 </p>
 
 ---
@@ -75,31 +75,17 @@ Import data from CSV, and XLSX fiiles to MySQL database.
   - ### Install
 
   - ### Start
+    ```shell
+    python3 main.py
+    ```
 
   - ### Dev
+    ```shell
+    python3 main.py
+    ```
 
 - ## Test
 
 ---
 
 ## Usage
-
----
-
-## Tests
-
-<small>Test Example:
-
-| Test        | Name          | Status                                                    |
-| :---------- | :------------ | :-------------------------------------------------------- |
-| ExampleTest | Test 1 - Pass | <p style="color: green; text-align: center;">&#10003;</p> |
-| ExampleTest | Test 2 - Fail | <p style="color: red; text-align: center;">&#65794;</p>   |
-
-</small>
-
----
-
-| Test | Name | Status |
-| :--- | :--- | :----- |
-
----
