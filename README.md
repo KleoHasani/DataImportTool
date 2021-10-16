@@ -23,7 +23,6 @@ Import data from CSV, and XLSX fiiles to MySQL database.
   - [Test](#test)
 - [Authors](#authors)
 - [Usage](#usage)
-- [Tests](#tests)
 
 ---
 
@@ -81,9 +80,7 @@ Import data from CSV, and XLSX fiiles to MySQL database.
   ```python3
   python3 ./src/main.py <command> <path>
   ```
-
-- ## Test
-
+  
 ---
 
 ## Usage
