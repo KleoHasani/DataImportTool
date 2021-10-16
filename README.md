@@ -1,5 +1,5 @@
 <p align="center">
-
+	<img src="docs/assets/logo.png" width="200" height="100">
 </p>
 
 ---
@@ -77,3 +77,11 @@ Import data from CSV, and XLSX fiiles to MySQL database.
   ```
 
   - ### Start
+  ```python3
+  python3 ./src/main.py <command> <path>
+  ```
+  
+---
+
+## Usage
+
