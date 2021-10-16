@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="docs/assets/logo.png" width="150" height="50">
+
 </p>
 
 ---
@@ -23,7 +23,6 @@ Import data from CSV, and XLSX fiiles to MySQL database.
   - [Test](#test)
 - [Authors](#authors)
 - [Usage](#usage)
-- [Tests](#tests)
 
 ---
 
@@ -73,19 +72,8 @@ Import data from CSV, and XLSX fiiles to MySQL database.
     ```
 
   - ### Install
+  ```python3
+  pip install -r requirements.txt
+  ```
 
   - ### Start
-    ```python3
-    python3 main.py
-    ```
-
-  - ### Dev
-    ```python3
-    python3 main.py
-    ```
-
-- ## Test
-
----
-
-## Usage
