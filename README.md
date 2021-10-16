@@ -75,12 +75,12 @@ Import data from CSV, and XLSX fiiles to MySQL database.
   - ### Install
 
   - ### Start
-    ```shell
+    ```python3
     python3 main.py
     ```
 
   - ### Dev
-    ```shell
+    ```python3
     python3 main.py
     ```
 
