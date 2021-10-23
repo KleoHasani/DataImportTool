@@ -18,7 +18,7 @@ def main():
     #     print(data)
     #     return
 
-    connection = db.connect()
+    #connection = db.connect()
     return
 
 if __name__ == "__main__":
