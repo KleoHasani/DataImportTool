@@ -8,3 +8,4 @@ python-dotenv==0.19.1
 pytz==2021.3
 six==1.16.0
 SQLAlchemy==1.4.25
+openpyxl==3.0.9
