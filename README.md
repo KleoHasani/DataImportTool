@@ -68,9 +68,10 @@ Import data from CSV, and XLSX fiiles to MySQL database.
     - #### ENV
       ```env
       DB_HOST="localhost"
-      DB_USER="rootforexample"
-      DB_PASSWORD="yourrootpasswordforexample"
-      DB_NAME="MalwareDesign"
+      DB_PORT=3306
+      DB_USER="userorroot"
+      DB_PASSWORD="youruserpassword"
+      DB_NAME="MalwareAnalysisDatabase"
       ```
 
   - ### Install
