@@ -1,41 +1,48 @@
 import sys
 import os.path as path
 
-# Allowed commands.
-ALLOWED_COMMANDS = [("-c", "--csv"), ("-x", "--xlsx")]
+# CLI Allowed commands.
+CSV_COMMAND = ("-c", "--csv")
+XLSX_COMMAND = ("-x", "--xlsx")
 
 def cli():
     # Vars
-    args = sys.argv
+    args = sys.argv[1:]
+    arg_length = len(args)
     cmd = None
     cwp = ""
-    
+
     try:
-        # Check for a valid number of arguments passed.
-        if args.__len__() == 0 or args.__len__() > ALLOWED_COMMANDS.__len__() + 1:
-            raise Exception("No arguments")
-                
-        # Check arg[1], command is valid.
-        if args[1] == ALLOWED_COMMANDS[0][0] or args[1] == ALLOWED_COMMANDS[0][1]:
+        # Check correct number of arguments is being passed.
+        if arg_length == 0:
+            raise Exception("No arguments supplied.")
+
+        if arg_length == 1:
+            raise Exception("No path argument supplied.")
+
+        if arg_length > 2:
+            raise Exception("Too many arguments supplied.")
+
+        # Check command is valid.
+        if args[0] == CSV_COMMAND[0] or args[1] == CSV_COMMAND[1]:
             cmd = "csv"
-        elif args[1] == ALLOWED_COMMANDS[1][0] or args[1] == ALLOWED_COMMANDS[1][1]:
+        elif args[0] == XLSX_COMMAND[0] or args[1] == XLSX_COMMAND[1]:
             cmd = "xlsx"
         else:
-            raise Exception("Invalid command")
-        
-        # Check arg[2], path is valid.
-        if args[2]:
-            cwp = args[2]
-        else:
-            raise Exception("No path")
+            raise Exception("Invalid command supplied.")
+
+        # Set path.
+        cwp = args[2] 
+        # Resolve path.
+        cwp = path.abspath(cwp)
+
+        # Check path is valid.
+        if not path.exists(cwp):
+            raise Exception("Invalid path.")
 
     except Exception as e:
         print(e)
         return sys.exit(0)
-
-
-    # Resolve path.
-    cwp = path.abspath(cwp)
 
     # Return tuple with command and current working path.
     return (cmd, cwp)

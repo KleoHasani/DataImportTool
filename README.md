@@ -19,6 +19,8 @@ Import data from CSV, and XLSX fiiles to MySQL database.
   - [Installation](#installation)
     - [Clone](#clone)
     - [Set-Up](#set-up)
+      - [VENV](#venv)
+      - [ENV](#env)
     - [Install](#install)
   - [Test](#test)
 - [Authors](#authors)
@@ -42,34 +44,34 @@ Import data from CSV, and XLSX fiiles to MySQL database.
 
   - ### Set-Up
 
-    __Set-up venv__
-    ```shell
-    python3 -m venv env
-    ```
-
-    __Enable venv for the project.__
-
-    Set your shell to use the venv paths for Python by activating the virtual environment.
-
-    - macOS
+    - #### VENV
       ```shell
-      source env/bin/activate
+      python3 -m venv env
       ```
 
-    - Windows
-      ```shell
-      .\env\Scripts\activate
-      ```
+      __Set your shell to use the venv paths for Python by activating the virtual environment.__
 
-    - Linux
-      ```shell
-      source env/bin/activate
-      ```
+      - macOS
+        ```shell
+        source env/bin/activate
+        ```
 
-    __Disable venv for the project.__
-    ```
-    deactivate
-    ```
+      - Windows
+        ```shell
+        .\env\Scripts\activate
+        ```
+
+      - Linux
+        ```shell
+        source env/bin/activate
+        ```
+    - #### ENV
+      ```env
+      DB_HOST="localhost"
+      DB_USER="rootforexample"
+      DB_PASSWORD="yourrootpasswordforexample"
+      DB_NAME="MalwareDesign"
+      ```
 
   - ### Install
   ```python3
@@ -80,8 +82,35 @@ Import data from CSV, and XLSX fiiles to MySQL database.
   ```python3
   python3 ./src/main.py <command> <path>
   ```
+
+  - ### Stop
+    __Write to Requirements.txt. (If new packages were installed).__
+      ```python
+      pip3 freeze > requirements.txt
+      ```
+
+    __Disable venv for the project.__
+    ```shell
+    deactivate
+    ```
   
 ---
 
 ## Usage
+__Read from CSV file__
+```python3
+python3 ./src/main.py -c <path>
+```
 
+```python3
+python3 ./src/main.py --csv <path>
+```
+
+__Read from XLSX file__
+```python3
+python3 ./src/main.py -x <path>
+```
+
+```python3
+python3 ./src/main.py --xslx <path>
+```
