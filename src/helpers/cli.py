@@ -20,21 +20,23 @@ def cli():
         if arg_length == 1:
             raise Exception("No path argument supplied.")
 
-        if arg_length > 2:
+        if arg_length > 3:
             raise Exception("Too many arguments supplied.")
 
         # Check command is valid.
-        if args[0] == CSV_COMMAND[0] or args[1] == CSV_COMMAND[1]:
+        if args[0] == CSV_COMMAND[0] or args[0] == CSV_COMMAND[1]:
             cmd = "csv"
-        elif args[0] == XLSX_COMMAND[0] or args[1] == XLSX_COMMAND[1]:
+        elif args[0] == XLSX_COMMAND[0] or args[0] == XLSX_COMMAND[1]:
             cmd = "xlsx"
         else:
             raise Exception("Invalid command supplied.")
 
         # Set path.
-        cwp = args[2] 
+        cwp = args[1]
         # Resolve path.
         cwp = path.abspath(cwp)
+        print(cwp)
+
 
         # Check path is valid.
         if not path.exists(cwp):
