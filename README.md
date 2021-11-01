@@ -81,7 +81,7 @@ Import data from CSV, and XLSX fiiles to MySQL database.
 
   - ### Start
   ```python3
-  python3 ./src/main.py <command> <path>
+  python3 main.py <command> <file path> <mock file path>
   ```
 
   - ### Stop
@@ -100,18 +100,10 @@ Import data from CSV, and XLSX fiiles to MySQL database.
 ## Usage
 __Read from CSV file__
 ```python3
-python3 ./src/main.py -c <path>
-```
-
-```python3
-python3 ./src/main.py --csv <path>
+python3 main.py -c ./mock/data.csv ./mock/data.mock
 ```
 
 __Read from XLSX file__
 ```python3
-python3 ./src/main.py -x <path>
-```
-
-```python3
-python3 ./src/main.py --xslx <path>
+python3 main.py -x ./mock/data.xlsx ./mock/data.mock
 ```
