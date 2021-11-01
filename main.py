@@ -1,14 +1,15 @@
-from helpers.cli import cli
-from reader import csv, xlsx
-from database import exec
+from src.helpers.cli import cli
+from src.reader import csv, xlsx, mfile
 
 def main():
     data = None
-    cmd, cwp = cli()
+    cmd, cwp, m = cli()
 
     if cmd == "csv":
         data = csv(cwp)
         print(data)
+        d1 = mfile(m)
+        print(d1)
         return
       
     if cmd == "xlsx":

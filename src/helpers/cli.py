@@ -2,8 +2,6 @@ import sys
 import os.path as path
 
 # CLI Allowed commands.
-CSV_COMMAND = ("-c", "--csv")
-XLSX_COMMAND = ("-x", "--xlsx")
 
 def cli():
     # Vars
@@ -11,6 +9,7 @@ def cli():
     arg_length = len(args)
     cmd = None
     cwp = ""
+    mck = ""
 
     try:
         # Check correct number of arguments is being passed.
@@ -24,27 +23,30 @@ def cli():
             raise Exception("Too many arguments supplied.")
 
         # Check command is valid.
-        if args[0] == CSV_COMMAND[0] or args[0] == CSV_COMMAND[1]:
+        if args[0] == "-c":
             cmd = "csv"
-        elif args[0] == XLSX_COMMAND[0] or args[0] == XLSX_COMMAND[1]:
+        elif args[0] == "-x":
             cmd = "xlsx"
         else:
             raise Exception("Invalid command supplied.")
 
-        # Set path.
+        # Set current working path.
         cwp = args[1]
         # Resolve path.
         cwp = path.abspath(cwp)
-        print(cwp)
-
 
         # Check path is valid.
         if not path.exists(cwp):
             raise Exception("Invalid path.")
+        
+        # Set mock file path.
+        mck = args[2]
+        # Resolve path.
+        mck = path.abspath(mck)
 
     except Exception as e:
         print(e)
         return sys.exit(0)
 
     # Return tuple with command and current working path.
-    return (cmd, cwp)
+    return (cmd, cwp, mck)

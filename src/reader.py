@@ -7,3 +7,8 @@ def xlsx(path):
 def csv(path, separator = ","):
     df = read_csv(path, separator)
     return df
+
+def mfile(path):
+    file = open(path, "r")
+    print(file.read())
+    return file.read();
