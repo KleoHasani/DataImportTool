@@ -7,17 +7,13 @@ def main():
 
     if cmd == "csv":
         data = csv(cwp)
-        print(data)
-        d1 = mfile(m)
-        print(d1)
+        tokens = mfile(m)
         return
       
     if cmd == "xlsx":
         data = xlsx(cwp)
         print(data)
         return
-
-    return
 
 if __name__ == "__main__":
     main()

@@ -1,4 +1,5 @@
 from pandas import read_csv, read_excel;
+from src.Lexer import Lexer
 
 def xlsx(path):
     df = read_excel(path)
@@ -9,6 +10,13 @@ def csv(path, separator = ","):
     return df
 
 def mfile(path):
-    file = open(path, "r")
-    print(file.read())
-    return file.read();
+    try:
+        lex = Lexer()
+        
+        with open(path, "r") as file:
+            line = file.readline()
+            lex.consume(line)
+        
+        return lex
+    except Exception as ex:
+        raise ex;
