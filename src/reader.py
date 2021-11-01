@@ -17,6 +17,7 @@ def mfile(path):
             line = file.readline()
             lex.consume(line)
         
-        return lex
+        return lex.getTokens()
+        
     except Exception as ex:
         raise ex;

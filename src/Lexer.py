@@ -20,7 +20,7 @@ class Lexer:
         cline = l[0]
         sline  = l[1]
 
-        column = Token(TKN_COLM, cline)
+        column = Token(TKN_COLM, cline.strip())
         matchers = []
 
         mline = sline.split("+")
