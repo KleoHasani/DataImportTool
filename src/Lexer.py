@@ -17,17 +17,13 @@ class Lexer:
     
     def consume(self, line):
         l = line.split("=")
+        
         cline = l[0]
         sline  = l[1]
 
         column = Token(TKN_COLM, cline.strip())
-        matchers = []
+        matchers = Token(TKN_MATC, sline.strip())
 
-        mline = sline.split("+")
-
-        for match in mline:
-            matchers.append(Token(TKN_MATC, match.strip()))
-            
         self.tokens.append((column, matchers))
         return
 

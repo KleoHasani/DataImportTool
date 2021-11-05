@@ -2,22 +2,30 @@ from pandas import read_csv, read_excel;
 from src.Lexer import Lexer
 
 def xlsx(path):
-    df = read_excel(path)
-    return df
+    data_frame = read_excel(path)
+    return data_frame
 
 def csv(path, separator = ","):
-    df = read_csv(path, separator)
-    return df
+    data_frame = read_csv(path, delimiter=separator)
+    return data_frame
 
 def mfile(path):
     try:
+        table_name = ""
         lex = Lexer()
         
         with open(path, "r") as file:
-            line = file.readline()
-            lex.consume(line)
+            table_name = file.readline().strip()
+
+            can_read = True
+            while(can_read):
+                line = file.readline().strip()
+                if not line:
+                    can_read = False
+                    break
+                lex.consume(line)
         
-        return lex.getTokens()
+        return (table_name, lex.getTokens())
         
     except Exception as ex:
-        raise ex;
+        raise ex
