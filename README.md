@@ -68,8 +68,8 @@ Import data from CSV, and XLSX fiiles to MySQL database.
     - #### ENV
       ```env
       DB_HOST="localhost"
-      DB_PORT=3306
-      DB_USER="userorroot"
+      DB_PORT=3306|43306|yourMYSQLport
+      DB_USER="root|dev|userorroot"
       DB_PASSWORD="youruserpassword"
       DB_NAME="MalwareAnalysisDatabase"
       ```
@@ -100,10 +100,10 @@ Import data from CSV, and XLSX fiiles to MySQL database.
 ## Usage
 __Read from CSV file__
 ```python3
-python3 main.py -c ./mock/data.csv ./mock/data.mock
+python3 main.py -c ./mock/<file>.csv ./mock/<file>.mock
 ```
 
 __Read from XLSX file__
 ```python3
-python3 main.py -x ./mock/data.xlsx ./mock/data.mock
+python3 main.py -x ./mock/<file>.xlsx ./mock/<file>.mock
 ```
