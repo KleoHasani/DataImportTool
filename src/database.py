@@ -10,10 +10,6 @@ DB_USER=environ.get("DB_USER")
 DB_PASSWORD=environ.get("DB_PASSWORD")
 DB_NAME=environ.get("DB_NAME")
 
-def format_sql_string(text):
-    return "'"+text+"'"
-
-
 def gen_values(data):
     values = []
 

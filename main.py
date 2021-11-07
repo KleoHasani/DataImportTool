@@ -19,6 +19,7 @@ def main():
         return
     
     sql = sql_builder(table_name, tokens, data.shape)
+    
     exec(sql, data)
 
     print("Done")
