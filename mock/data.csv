@@ -1,13 +1,3 @@
-name,age,state
-Alice,24,NY
-Bob,42,CA
-Charlie,18,CA
-Dave,68,TX
-Ellen,24,CA
-Frank,30,NY
-Alice,24,NY
-Bob,42,CA
-Charlie,18,CA
-Dave,68,TX
-Ellen,24,CA
-Frank,30,NY
+Name,Description
+Backdoor,A program whose primary purpose is to allow a threat actor to interactively issue commands to the system on which it is installed.
+Test,A test catagory is here. Please delete me later.

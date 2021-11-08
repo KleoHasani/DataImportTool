@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="dataimport-logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="0.32382506"
+     inkscape:cx="511.07843"
+     inkscape:cy="1230.6027"
+     inkscape:window-width="1920"
+     inkscape:window-height="1026"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid69289" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <rect
+       x="196.18778"
+       y="410.02627"
+       width="493.22919"
+       height="188.76795"
+       id="rect5568" />
+    <rect
+       x="196.18777"
+       y="410.02628"
+       width="493.22919"
+       height="188.76794"
+       id="rect5568-2" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#214478;fill-rule:evenodd;stroke-width:0.231199"
+       id="rect31"
+       width="148.16667"
+       height="74.083336"
+       x="31.75"
+       y="111.125"
+       ry="23.556847"
+       inkscape:export-filename="/home/kleo/dataimport-logo.png"
+       inkscape:export-xdpi="34.285706"
+       inkscape:export-ydpi="34.285706" />
+    <rect
+       style="fill:#0088aa;fill-rule:evenodd;stroke-width:0.206263"
+       id="rect31-6"
+       width="137.58333"
+       height="63.500004"
+       x="37.041668"
+       y="116.41666"
+       ry="20.191584"
+       inkscape:export-filename="/home/kleo/dataimport-logo.png"
+       inkscape:export-xdpi="34.285706"
+       inkscape:export-ydpi="34.285706" />
+    <g
+       id="g69363"
+       transform="matrix(0.95103398,0,0,1.0203223,3.0986734,-5.6767572)"
+       inkscape:export-filename="/home/kleo/dataimport-logo.png"
+       inkscape:export-xdpi="34.285706"
+       inkscape:export-ydpi="34.285706">
+      <text
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,-6.433039,23.734342)"
+         id="text5566-0"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5568-2);fill:#0b2817;fill-opacity:1;stroke:none"><tspan
+           x="196.1875"
+           y="487.66804"
+           id="tspan74728"><tspan
+             style="font-size:85.3333px;-inkscape-font-specification:'sans-serif, Normal'"
+             id="tspan74726">DataImport</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,-7.4913708,22.676008)"
+         id="text5566"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect5568);fill:#dbe3de;fill-opacity:1;stroke:none"><tspan
+           x="196.1875"
+           y="487.66804"
+           id="tspan74732"><tspan
+             style="font-size:85.3333px;-inkscape-font-specification:'sans-serif, Normal'"
+             id="tspan74730">DataImport</tspan></tspan></text>
+    </g>
+    <path
+       style="fill:#e500ba;fill-opacity:1;stroke:none;stroke-width:0.295812px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 124.35417,174.625 111.125,164.04167 h 26.45833 z"
+       id="path69431"
+       inkscape:export-filename="/home/kleo/dataimport-logo.png"
+       inkscape:export-xdpi="34.285706"
+       inkscape:export-ydpi="34.285706" />
+    <path
+       style="fill:#4200ba;fill-opacity:1;stroke:none;stroke-width:0.295812px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 124.35417,171.97917 111.125,161.39584 h 26.45833 z"
+       id="path69431-9"
+       inkscape:export-filename="/home/kleo/dataimport-logo.png"
+       inkscape:export-xdpi="34.285706"
+       inkscape:export-ydpi="34.285706" />
+    <path
+       style="fill:#4267ba;fill-opacity:1;stroke:none;stroke-width:0.295812px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 124.35417,169.33333 111.125,158.75 h 26.45833 z"
+       id="path69431-9-1"
+       inkscape:export-filename="/home/kleo/dataimport-logo.png"
+       inkscape:export-xdpi="34.285706"
+       inkscape:export-ydpi="34.285706" />
+  </g>
+</svg>
