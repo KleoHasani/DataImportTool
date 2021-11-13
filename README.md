@@ -4,11 +4,11 @@
 
 ---
 
-# DataImport
+# DataImportTool
 
 ## Description
 
-Import data from CSV, and XLSX fiiles to MySQL database. 
+Python tool to import data from CSV and XLSX files to MySQL database.
 
 ---
 
@@ -39,7 +39,7 @@ Import data from CSV, and XLSX fiiles to MySQL database.
   - ### Clone
 
     ```shell
-    git clone https://github.com/csdcti/DataImport.git
+    git clone https://github.com/csdcti/DataImportTool.git
     ```
 
   - ### Set-Up
