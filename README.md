@@ -14,11 +14,17 @@ Python tool to import data from CSV and XLSX files to MySQL database.
 
 ## Table of Contents
 
-- [DataImportTool](#dataimporttool)
-  - [Description](#description)
-  - [Table of Contents](#table-of-contents)
-  - [Getting Started](#getting-started)
-  - [Usage](#usage)
+- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+    - [Clone](#clone)
+    - [Set-Up](#set-up)
+      - [VENV](#venv)
+      - [ENV](#env)
+    - [Install](#install)
+  - [Test](#test)
+- [Authors](#authors)
+- [Usage](#usage)
 
 ---
 
@@ -39,18 +45,21 @@ Python tool to import data from CSV and XLSX files to MySQL database.
   - ### Set-Up
 
     - #### VENV
+
       ```shell
       python3 -m venv env
       ```
 
-      __Set your shell to use the venv paths for Python by activating the virtual environment.__
+      **Set your shell to use the venv paths for Python by activating the virtual environment.**
 
       - macOS
+
         ```shell
         source env/bin/activate
         ```
 
       - Windows
+
         ```shell
         .\env\Scripts\activate
         ```
@@ -59,6 +68,7 @@ Python tool to import data from CSV and XLSX files to MySQL database.
         ```shell
         source env/bin/activate
         ```
+
     - #### ENV
       ```env
       DB_HOST="localhost"
@@ -69,35 +79,43 @@ Python tool to import data from CSV and XLSX files to MySQL database.
       ```
 
   - ### Install
+
   ```python3
   pip install -r requirements.txt
   ```
 
   - ### Start
+
   ```python3
   python3 main.py <data_file_path> <mock_file_path>
   ```
 
   - ### Stop
-    __Write to Requirements.txt. (If new packages were installed).__
-      ```python
-      pip3 freeze > requirements.txt
-      ```
 
-    __Disable venv for the project.__
+    **Write to Requirements.txt. (If new packages were installed).**
+
+    ```python
+    pip3 freeze > requirements.txt
+    ```
+
+    **Disable venv for the project.**
+
     ```shell
     deactivate
     ```
-  
+
 ---
 
 ## Usage
-__Read from CSV file__
+
+**Read from CSV file**
+
 ```python3
 python3 main.py mock/<file>.csv mock/<file>.mock
 ```
 
-__Read from XLSX file__
+**Read from XLSX file**
+
 ```python3
 python3 main.py mock/<file>.xlsx mock/<file>.mock
 ```
