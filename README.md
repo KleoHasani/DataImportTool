@@ -14,17 +14,11 @@ Python tool to import data from CSV and XLSX files to MySQL database.
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-  - [Requirements](#requirements)
-  - [Installation](#installation)
-    - [Clone](#clone)
-    - [Set-Up](#set-up)
-      - [VENV](#venv)
-      - [ENV](#env)
-    - [Install](#install)
-  - [Test](#test)
-- [Authors](#authors)
-- [Usage](#usage)
+- [DataImportTool](#dataimporttool)
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+  - [Usage](#usage)
 
 ---
 
@@ -81,7 +75,7 @@ Python tool to import data from CSV and XLSX files to MySQL database.
 
   - ### Start
   ```python3
-  python3 main.py <command> <file path> <mock file path>
+  python3 main.py <data_file_path> <mock_file_path>
   ```
 
   - ### Stop
@@ -100,10 +94,10 @@ Python tool to import data from CSV and XLSX files to MySQL database.
 ## Usage
 __Read from CSV file__
 ```python3
-python3 main.py -c ./mock/<file>.csv ./mock/<file>.mock
+python3 main.py mock/<file>.csv mock/<file>.mock
 ```
 
 __Read from XLSX file__
 ```python3
-python3 main.py -x ./mock/<file>.xlsx ./mock/<file>.mock
+python3 main.py mock/<file>.xlsx mock/<file>.mock
 ```
