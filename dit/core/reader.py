@@ -1,5 +1,5 @@
 from pandas import read_csv, read_excel;
-from src.Lexer import Lexer
+from dit.core.Lexer import Lexer
 
 # Read from xlsx file.
 def xlsx(path):

@@ -1,10 +1,14 @@
-import typer
+import click
 from re import split
 from os.path import exists, abspath
-from src.reader import csv, xlsx, mfile
-from src.database import exec, sql_builder
+from dit.core.reader import csv, xlsx, mfile
+from dit.core.database import exec, sql_builder
 
-def main(data_file_path: str, mock_file_path: str):
+
+@click.command()
+@click.argument('data_file_path')
+@click.argument('mock_file_path')
+def main(data_file_path, mock_file_path):
     try:
         # Check files exist
         if not exists(data_file_path):
@@ -44,9 +48,5 @@ def main(data_file_path: str, mock_file_path: str):
         print(ex)
     
     # Exit
-    typer.Exit()
+    exit(0)
     return
-
-
-if __name__ == "__main__":
-    typer.run(main)

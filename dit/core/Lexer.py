@@ -1,12 +1,7 @@
+from dit.core.Token import Token
+
 TKN_COLM=0
 TKN_MATC=1
-
-# Token class. Determine how a token will look.
-class Token:
-    def __init__(self, type, value):
-        self.type = type
-        self.value = value
-        return
 
 # Lexer calss. Determine what a lexer can do. Hold on to tokens per lexer.
 class Lexer:
