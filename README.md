@@ -22,9 +22,11 @@ Python tool to import data from CSV and XLSX files to MySQL database.
       - [VENV](#venv)
       - [ENV](#env)
     - [Install](#install)
-  - [Test](#test)
-- [Authors](#authors)
+    - [Start](#start)
+    - [Stop](#stop)
+- [Build](#build)
 - [Usage](#usage)
+- [Test](#test)
 
 ---
 
@@ -86,8 +88,16 @@ Python tool to import data from CSV and XLSX files to MySQL database.
 
   - ### Start
 
+  \*Nix
+
   ```python3
-  python3 main.py <data_file_path> <mock_file_path>
+  python3 dit/main.py <data_file_path> <mock_file_path>
+  ```
+
+  NT
+
+  ```python3
+  python3 dit\main.py <data_file_path> <mock_file_path>
   ```
 
   - ### Stop
@@ -106,16 +116,24 @@ Python tool to import data from CSV and XLSX files to MySQL database.
 
 ---
 
+## Build
+
+```shell
+pip install .
+```
+
+---
+
 ## Usage
 
-**Read from CSV file**
-
-```python3
-python3 main.py mock/<file>.csv mock/<file>.mock
+```shell
+dit <data_file_path> <mock_file_path>
 ```
 
-**Read from XLSX file**
+---
 
-```python3
-python3 main.py mock/<file>.xlsx mock/<file>.mock
-```
+## Test
+
+| File         | Test             | Description | Status   |
+| :----------- | :--------------- | :---------- | :------- |
+| test_true.py | test_always_true | Mock test.  | &#10003; |

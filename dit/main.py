@@ -50,3 +50,7 @@ def main(data_file_path, mock_file_path):
     # Exit
     exit(0)
     return
+
+
+if __name__ == "__main__":
+    main()
