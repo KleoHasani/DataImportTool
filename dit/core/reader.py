@@ -8,7 +8,7 @@ def xlsx(path):
         return data_frame
     
     # Catch all errors.
-    except Exception as ex:
+    except Exception:
         raise Exception("Unable to open file")
 
 # Read from CSV file.
@@ -18,7 +18,7 @@ def csv(path, separator = ","):
         return data_frame
 
     # Catch all errors.
-    except Exception as ex:
+    except Exception:
         raise Exception("Unable to open file")
 
 # Read from MOCK file.
@@ -45,5 +45,5 @@ def mfile(path):
         # Return table name and tokens.
         return (table_name, lex.getTokens())
     # Catch all errors.
-    except Exception as ex:
+    except Exception:
         raise Exception("Unable to open file")

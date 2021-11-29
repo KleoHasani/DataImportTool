@@ -51,9 +51,9 @@ def main(data_file_path, mock_file_path):
     except Exception as ex:
         print(ex)
     
-    # Exit
-    exit(0)
-    return
+    finally:
+        # Exit
+        exit(0)
 
 
 if __name__ == "__main__":
