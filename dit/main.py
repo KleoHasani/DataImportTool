@@ -33,8 +33,12 @@ def main(data_file_path, mock_file_path):
         if ext == "csv":
             data = csv(data_file_path)
         
-        if ext == "xlsx":
+        elif ext == "xlsx":
             data = xlsx(data_file_path)
+        
+        else:
+            raise Exception("Invalid file type.")
+
 
         #Build SQL statement based on table name, tokens and data size.
         sql = sql_builder(table_name, tokens, data.shape)
