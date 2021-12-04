@@ -1,6 +1,6 @@
 from mysql.connector import Error, connect
 
-from Config import Config
+from .Config import Config
 
 # Get all the values from data read.
 def gen_values(data):

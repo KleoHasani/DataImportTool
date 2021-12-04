@@ -2,10 +2,10 @@ from re import split
 from getpass import getpass
 from os.path import exists, abspath
 
-from Config import Config, ConfigFile
+from .Config import Config, ConfigFile
 
-from reader import csv, xlsx, mfile
-from database import exec, sql_builder, create_connection
+from .reader import csv, xlsx, mfile
+from .database import exec, sql_builder, create_connection
 
 
 ascii_logo = '''
