@@ -1,8 +1,8 @@
-from pandas import read_csv, read_excel;
-from dit.core.Lexer import Lexer
+from pandas import read_csv, read_excel, DataFrame;
+from core.Lexer import Lexer
 
 # Read from xlsx file.
-def xlsx(path):
+def xlsx(path) -> DataFrame:
     try:
         data_frame = read_excel(path)
         return data_frame
@@ -12,7 +12,7 @@ def xlsx(path):
         raise Exception("Unable to open file")
 
 # Read from CSV file.
-def csv(path, separator = ","):
+def csv(path, separator = ",") -> DataFrame:
     try:
         data_frame = read_csv(path, delimiter=separator)
         return data_frame
@@ -22,13 +22,15 @@ def csv(path, separator = ","):
         raise Exception("Unable to open file")
 
 # Read from MOCK file.
-def mfile(path):
+def mfile(path) -> tuple:
     try:
         table_name = ""
         lex = Lexer()
         
         with open(path, "r") as file:
-            # First line on MOCK file should be the table name.
+            # First line on MOCK file should be the database name.
+            database_name = file.readline().strip()
+            # Second line on MOCK file should be the database name.
             table_name = file.readline().strip()
 
             # Determine EOF, read until the end of file.
@@ -43,7 +45,7 @@ def mfile(path):
                 lex.consume(line)
 
         # Return table name and tokens.
-        return (table_name, lex.getTokens())
+        return (database_name, table_name, lex.getTokens())
     # Catch all errors.
     except Exception:
         raise Exception("Unable to open file")

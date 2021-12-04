@@ -20,7 +20,6 @@ Python tool to import data from CSV and XLSX files to MySQL database.
     - [Clone](#clone)
     - [Set-Up](#set-up)
       - [VENV](#venv)
-      - [ENV](#env)
     - [Install](#install)
     - [Start](#start)
     - [Stop](#stop)
@@ -71,15 +70,6 @@ Python tool to import data from CSV and XLSX files to MySQL database.
         source env/bin/activate
         ```
 
-    - #### ENV
-      ```env
-      DB_HOST="localhost"
-      DB_PORT=3306|43306|yourMYSQLport
-      DB_USER="root|dev|userorroot"
-      DB_PASSWORD="youruserpassword"
-      DB_NAME="MalwareAnalysisDatabase"
-      ```
-
   - ### Install
 
   ```python3
@@ -91,13 +81,13 @@ Python tool to import data from CSV and XLSX files to MySQL database.
   \*Nix
 
   ```python3
-  python3 dit/main.py <data_file_path> <mock_file_path>
+  python3 src/main.py
   ```
 
-  NT
+  Windows
 
   ```python3
-  python3 dit\main.py <data_file_path> <mock_file_path>
+  python3 src\main.py
   ```
 
   - ### Stop
@@ -127,7 +117,7 @@ pip install .
 ## Usage
 
 ```shell
-dit <data_file_path> <mock_file_path>
+dit
 ```
 
 ---

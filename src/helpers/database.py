@@ -1,15 +1,6 @@
-from os import environ
-from dotenv import load_dotenv
-from mysql.connector import connect, Error
+from mysql.connector import Error, connect
 
-load_dotenv(".env")
-
-# ENV defined variables to connect to MYSQL.
-DB_HOST=environ.get("DB_HOST")
-DB_PORT=environ.get("DB_PORT")
-DB_USER=environ.get("DB_USER")
-DB_PASSWORD=environ.get("DB_PASSWORD")
-DB_NAME=environ.get("DB_NAME")
+from core.Config import Config
 
 # Get all the values from data read.
 def gen_values(data):
@@ -22,7 +13,7 @@ def gen_values(data):
 
 
 # Build SQL statement.
-def sql_builder(table, tokens, shape):
+def sql_builder(database, table, tokens, shape):
     # Current SQL.
     sql = None
 
@@ -33,7 +24,7 @@ def sql_builder(table, tokens, shape):
     shape_len = shape
 
     # Basic 'INSERT INTO' SQL statement.
-    sql_start = "INSERT INTO " + DB_NAME + "." + table
+    sql_start = "INSERT INTO " + database + "." + table
     sql_fields = " ("
     sql_values = " VALUES ("
 
@@ -65,28 +56,28 @@ def sql_builder(table, tokens, shape):
 
     return sql
 
-def exec(sql, data):
-    try:
-        # Create connection to database.
-        cnx = connect(
-            host=DB_HOST,
-            port=DB_PORT,
-            user=DB_USER,
-            password=DB_PASSWORD,
-            database=DB_NAME)
 
+def create_connection(config: Config):
+    try:
+        return connect(host=config.host, port=config.port, database=config.name, user=config.user, password=config.password)
+    except Exception:
+         raise Exception("Unable to connect to database")
+        
+
+def exec(connection, sql, data):
+    try:
         # Get connection cursor.
-        cursor = cnx.cursor()
+        cursor = connection.cursor()
 
         # Execute the generated SQL per row of data.
         for value in gen_values(data):
             cursor.execute(sql, value)
 
         # Write changes to database.
-        cnx.commit()
+        connection.commit()
 
         # Close connection.
-        cnx.close()
+        connection.close()
     
     # Catch all errors. Raise 'Unable to write to database' error for 'main.py' to handle.
     except Error as ex:

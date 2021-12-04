@@ -1,21 +1,17 @@
-from dit.core.Token import Token
+from core.Token import Token
 
 TKN_COLM=0
 TKN_MATC=1
 
 # Lexer calss. Determine what a lexer can do. Hold on to tokens per lexer.
 class Lexer:
-    def __init__(self):
+    def __init__(self) -> None:
         # All tokens.
         self.tokens=[]
         return
-
-    # Look ahead of the next character in a line.
-    def peak(self, exp, k):
-        return exp[k]
     
     # Tokenize the line.
-    def consume(self, line):
+    def consume(self, line) -> None:
         l = line.split("=")
         
         cline = l[0]
@@ -28,5 +24,5 @@ class Lexer:
         return
 
     # Get all tokens.
-    def getTokens(self):
+    def getTokens(self) -> list:
         return self.tokens
