@@ -1,5 +1,5 @@
 from pandas import read_csv, read_excel, DataFrame;
-from .Lexer import Lexer
+from Lexer import Lexer
 
 # Read from xlsx file.
 def xlsx(path) -> DataFrame:
@@ -29,8 +29,6 @@ def mfile(path) -> tuple:
         
         with open(path, "r") as file:
             # First line on MOCK file should be the database name.
-            database_name = file.readline().strip()
-            # Second line on MOCK file should be the database name.
             table_name = file.readline().strip()
 
             # Determine EOF, read until the end of file.
@@ -45,7 +43,7 @@ def mfile(path) -> tuple:
                 lex.consume(line)
 
         # Return table name and tokens.
-        return (database_name, table_name, lex.getTokens())
+        return (table_name, lex.getTokens())
     # Catch all errors.
     except Exception:
         raise Exception("Unable to open file")

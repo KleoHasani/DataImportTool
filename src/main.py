@@ -2,10 +2,10 @@ from re import split
 from getpass import getpass
 from os.path import exists, abspath
 
-from .Config import Config, ConfigFile
+from Config import Config
 
-from .reader import csv, xlsx, mfile
-from .database import exec, sql_builder, create_connection
+from reader import csv, xlsx, mfile
+from database import exec, sql_builder, create_connection
 
 
 ascii_logo = '''
@@ -27,22 +27,26 @@ ascii_logo = '''
         https://github.com/csdcti/DataImportTool    By: CSDCTI Team.
 '''
 
+ascii_done = '''
+_____________________
+|                   |
+|   * * Done * *    |
+|___________________|
+'''
 
 def main() -> None:
     print(f'\033[36m{ascii_logo} \033[0m')
 
+    # Global config.
     conf = Config()
 
-    if not conf.exists:
+    if not conf.exists():
         print("-- Enter Database configuration --")
-        host = input(f'\033[32m > \033[0m \033[33m IP address (host): \033[0m')
-        port = input(f'\033[32m > \033[0m \033[33m Database port number (Ex. 3306): \033[0m')
-        name = input(f'\033[32m > \033[0m \033[33m Database name: \033[0m')
-        user = input(f'\033[32m > \033[0m \033[33m Database user: \033[0m')
-        password = getpass(f'\033[33m Database user password: \033[0m')
-        conf.setConfig(ConfigFile(host, port, name, user, password))
-        conf.saveConfig()
-    
+        conf.host = input(f'\033[32m > \033[0m \033[33m Host    : \033[0m')
+        conf.port = input(f'\033[32m > \033[0m \033[33m Port    : \033[0m')
+        conf.name = input(f'\033[32m > \033[0m \033[33m Database: \033[0m')
+        conf.user = input(f'\033[32m > \033[0m \033[33m User    : \033[0m')
+        conf.password = getpass(f'\033[32m > \033[33m  Password: \033[0m')
 
     run = True
 
@@ -62,7 +66,7 @@ def main() -> None:
             ext = split("[(\/) | (\\) | (\.)]", data_file_path)[-1].lower()
 
             # Read mock file and determine database and table name and provide mock data tokens.
-            database_name, table_name, tokens = mfile(mock_file_path)
+            table_name, tokens = mfile(mock_file_path)
 
             # Data variable.
             data = None
@@ -79,15 +83,15 @@ def main() -> None:
 
 
             #Build SQL statement based on table name, tokens and data size.
-            sql = sql_builder(database_name, table_name, tokens, data.shape)
+            sql = sql_builder(conf.name, table_name, tokens, data.shape)
             
             # Execute SQL and save.
-            conn = create_connection(conf.config)
+            conn = create_connection(conf)
 
             # Create connection to database.
             exec(conn, sql, data)
 
-            print("\nDone")
+            print(f'\033[0m \033[32m {ascii_done} \033[0m\n')
             
         except Exception as ex:
             print(f'\033[31m \n{ex} \033[0m \n')

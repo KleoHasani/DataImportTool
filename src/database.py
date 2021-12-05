@@ -1,6 +1,6 @@
 from mysql.connector import Error, connect
 
-from .Config import Config
+from Config import Config
 
 # Get all the values from data read.
 def gen_values(data):
@@ -60,8 +60,9 @@ def sql_builder(database, table, tokens, shape):
 def create_connection(config: Config):
     try:
         return connect(host=config.host, port=config.port, database=config.name, user=config.user, password=config.password)
-    except Exception:
-         raise Exception("Unable to connect to database")
+    except Exception as ex:
+        print(ex)
+        raise Exception("Unable to connect to database")
         
 
 def exec(connection, sql, data):
@@ -81,4 +82,5 @@ def exec(connection, sql, data):
     
     # Catch all errors. Raise 'Unable to write to database' error for 'main.py' to handle.
     except Error as ex:
+        print(ex)
         raise Exception("Unable to write to database.")

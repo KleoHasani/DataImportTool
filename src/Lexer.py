@@ -1,4 +1,4 @@
-from .Token import Token
+from Token import Token
 
 TKN_COLM=0
 TKN_MATC=1
