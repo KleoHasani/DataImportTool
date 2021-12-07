@@ -1,63 +1,41 @@
+from re import sub
 from mysql.connector import Error, connect
-
+from mysql.connector.connection import MySQLConnection
+from pandas.core.frame import DataFrame
 from Config import Config
 
-# Get all the values from data read.
-def gen_values(data):
-    values = []
 
-    for i in range(0, data.shape[0]):
-        values.append(list(data.iloc[i]))
-
-    return values
+def _get_sql_field_value(arr: list) -> str:
+    return arr[0].value
 
 
-# Build SQL statement.
-def sql_builder(database, table, tokens, shape):
-    # Current SQL.
-    sql = None
+def _sql_fields(arr: list) -> str:
+    fields = list(map(_get_sql_field_value, arr))
+    fields_size = len(fields)
 
-    # Length of tokens.
-    tokens_len = len(tokens)
-
-    # Lenght of data. Rows and Columns
-    shape_len = shape
-
-    # Basic 'INSERT INTO' SQL statement.
-    sql_start = "INSERT INTO " + database + "." + table
-    sql_fields = " ("
-    sql_values = " VALUES ("
-
-    # Build filed names.
-    for i in range (0, tokens_len):
-        # Append field.
-        sql_fields = sql_fields + tokens[i][0].value
-
-        # Append separator.
-        if (i < tokens_len - 1):
-            sql_fields = sql_fields + ","
-
-    # Append close fields tag.
-    sql_fields = sql_fields + ")"
+    for i in range(0, fields_size, 2):
+        fields.insert(i+1, ",")
     
-    # Append placeholders for values.
-    for j in range (0, shape_len[1]):
-        sql_values = sql_values + "%s"
-        
-        # Append separator.
-        if (j < shape_len[1] - 1):
-            sql_values = sql_values + ","
-
-    # Append close values tag.
-    sql_values = sql_values + ");"
-
-    # Build SQL statement.
-    sql = sql_start + sql_fields + sql_values
-
-    return sql
+    return "".join(fields)
 
 
-def create_connection(config: Config):
+# Create all SQL values placeholders.
+def _sql_values(values_len: int):
+    return sub("%s", "%s,", "".join(["%s"]*values_len))[:-1]
+
+
+# Build SQL string.
+def sql_builder(database, table, fields, values_len) -> str:
+    return f'INSERT INTO {database}.{table} ({_sql_fields(fields)}) VALUES ({_sql_values(values_len)});'
+
+
+# Get all the values from data read.
+def generate_values(data: DataFrame):
+    return list(map(list, data.values))
+
+
+# Create connection.
+def create_connection(config: Config) -> MySQLConnection:
     try:
         return connect(host=config.host, port=config.port, database=config.name, user=config.user, password=config.password)
     except Exception as ex:
@@ -65,13 +43,14 @@ def create_connection(config: Config):
         raise Exception("Unable to connect to database")
         
 
-def exec(connection, sql, data):
+# Execute SQL.
+def exec(connection: MySQLConnection, sql: str, data: DataFrame):
     try:
         # Get connection cursor.
         cursor = connection.cursor()
 
         # Execute the generated SQL per row of data.
-        for value in gen_values(data):
+        for value in generate_values(data):
             cursor.execute(sql, value)
 
         # Write changes to database.

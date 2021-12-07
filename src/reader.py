@@ -21,6 +21,26 @@ def csv(path, separator = ",") -> DataFrame:
     except Exception:
         raise Exception("Unable to open file")
 
+
+def conf_file(path) -> tuple:
+    lex = Lexer()
+
+    can_read = True
+    with open(path, "r") as file:
+        while(can_read):
+            line = file.readline().strip()
+
+            if not line:
+                can_read = False
+                break
+
+            lex.consume(line)
+
+        file.close()
+
+    return lex.getTokens()
+
+
 # Read from MOCK file.
 def mfile(path) -> tuple:
     try:
@@ -41,6 +61,9 @@ def mfile(path) -> tuple:
                     break
                 # Have the lexer consume this line to create tokens.
                 lex.consume(line)
+
+            # Close open file.    
+            file.close()
 
         # Return table name and tokens.
         return (table_name, lex.getTokens())

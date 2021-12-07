@@ -1,3 +1,5 @@
+from click import command, argument
+
 from re import split
 from getpass import getpass
 from os.path import exists, abspath
@@ -5,7 +7,7 @@ from os.path import exists, abspath
 from Config import Config
 
 from reader import csv, xlsx, mfile
-from database import exec, sql_builder, create_connection
+from database import exec, create_connection, sql_builder
 
 
 ascii_logo = '''
@@ -34,11 +36,14 @@ _____________________
 |___________________|
 '''
 
-def main() -> None:
+
+@command(help="Config file path")
+@argument("config_path")
+def main(config_path) -> None:
     print(f'\033[36m{ascii_logo} \033[0m')
 
     # Global config.
-    conf = Config()
+    conf = Config(config_path)
 
     if not conf.exists():
         print("-- Enter Database configuration --")
@@ -83,7 +88,7 @@ def main() -> None:
 
 
             #Build SQL statement based on table name, tokens and data size.
-            sql = sql_builder(conf.name, table_name, tokens, data.shape)
+            sql = sql_builder(conf.name, table_name, tokens, data.shape[1])
             
             # Execute SQL and save.
             conn = create_connection(conf)
