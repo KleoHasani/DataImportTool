@@ -21,7 +21,6 @@ Python tool to import data from CSV and XLSX files to MySQL database.
     - [Set-Up](#set-up)
       - [VENV](#venv)
     - [Install](#install)
-    - [Start](#start)
     - [Stop](#stop)
 - [Build](#build)
 - [Usage](#usage)
@@ -76,20 +75,6 @@ Python tool to import data from CSV and XLSX files to MySQL database.
   pip install -r requirements.txt
   ```
 
-  - ### Start
-
-  \*Nix
-
-  ```python3
-  python3 src/main.py
-  ```
-
-  Windows
-
-  ```python3
-  python3 src\main.py
-  ```
-
   - ### Stop
 
     **Write to Requirements.txt. (If new packages were installed).**
@@ -116,8 +101,28 @@ pip install .
 
 ## Usage
 
+Setup config file.
+
 ```shell
-dit
+dit config
+```
+
+Config with file path and run
+
+```shell
+dit -p <config_file_path> run -m <mock_file_path> -d <data_file_path>
+```
+
+Run with default config (if default config exists)
+
+```shell
+dit run -m <mock_file_path> -d <data_file_path>
+```
+
+or
+
+```shell
+dit run <mock_file_path> <data_file_path>
 ```
 
 ---

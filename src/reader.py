@@ -36,8 +36,6 @@ def conf_file(path) -> tuple:
 
             lex.consume(line)
 
-        file.close()
-
     return lex.getTokens()
 
 
@@ -61,9 +59,6 @@ def mfile(path) -> tuple:
                     break
                 # Have the lexer consume this line to create tokens.
                 lex.consume(line)
-
-            # Close open file.    
-            file.close()
 
         # Return table name and tokens.
         return (table_name, lex.getTokens())
