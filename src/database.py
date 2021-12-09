@@ -1,7 +1,9 @@
 from re import sub
+from threading import Thread
 from mysql.connector import Error, connect
 from mysql.connector.connection import MySQLConnection
 from pandas.core.frame import DataFrame
+
 from Config import Config
 
 
@@ -49,9 +51,7 @@ def exec(connection: MySQLConnection, sql: str, data: DataFrame):
         # Get connection cursor.
         cursor = connection.cursor()
 
-        # Execute the generated SQL per row of data.
-        for value in generate_values(data):
-            cursor.execute(sql, value)
+        cursor.executemany(sql, generate_values(data))
 
         # Write changes to database.
         connection.commit()

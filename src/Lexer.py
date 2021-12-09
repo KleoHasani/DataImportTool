@@ -1,7 +1,4 @@
-from Token import Token
-
-TKN_COLM=0
-TKN_MATC=1
+from Token import Token, TKN_COLM, TKN_MATC
 
 # Lexer calss. Determine what a lexer can do. Hold on to tokens per lexer.
 class Lexer:
