@@ -79,11 +79,6 @@ cli.add_command(run, "run")
 
 if __name__ == "__main__":
     try:
-        key = AESAuth.key()
-        aes = AESAuth(key)
-        aes.get_key()
-        print(aes.key)
-
-        # cli()
+        cli()
     except Exception as ex:
-            print(f'\033[31m \n{ex} \033[0m \n')
+        print(f'\033[31m \n{ex} \033[0m \n')
