@@ -10,9 +10,6 @@ from reader import csv, xlsx, mfile
 from database import exec, create_connection, sql_builder
 
 
-from AESAuth import AESAuth
-
-
 conf = Config()
 
 @command(help="Set MySQL config and store to file.")
