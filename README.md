@@ -129,6 +129,10 @@ dit run <mock_file_path> <data_file_path>
 
 ## Test
 
+```shell
+pytest
+```
+
 | File         | Test             | Description | Status   |
 | :----------- | :--------------- | :---------- | :------- |
 | test_true.py | test_always_true | Mock test.  | &#10003; |
