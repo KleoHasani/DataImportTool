@@ -1,4 +1,3 @@
-from codecs import decode, encode
 from dataIO import read_config, write_config
 from os import remove
 
