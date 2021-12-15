@@ -27,5 +27,4 @@ _____________________
 |___________________|
 '''
 
-DEFAULT_CONFIG_PATH = join(gPath.home(), "dit.conf")
-DEFAULT_KEY_PATH = join(gPath.home(), "dit.key")
+DEFAULT_CONFIG_PATH = join(gPath.home(), "dit.json")
