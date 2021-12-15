@@ -41,13 +41,6 @@ def read_data(file_path: str) -> list:
 # Read from dit.json config file if it exists.
 def read_config(file_path: str) -> object:
     try:
-        # Get config file name and extention.
-        file = split("[(\/) | (\\)]", file_path)[-1].lower()
-
-        # Ensure it's the proper config file.
-        if not file == "dit.json":
-            raise Exception("Invalid config file.")
-        
         # Ensure config file exists.
         if not exists(file_path):
             raise Exception("Config file does not exist.")
