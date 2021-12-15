@@ -1,93 +1,47 @@
-from os import environ
-from dotenv import load_dotenv
-from mysql.connector import connect, Error
-
-load_dotenv(".env")
-
-# ENV defined variables to connect to MYSQL.
-DB_HOST=environ.get("DB_HOST")
-DB_PORT=environ.get("DB_PORT")
-DB_USER=environ.get("DB_USER")
-DB_PASSWORD=environ.get("DB_PASSWORD")
-DB_NAME=environ.get("DB_NAME")
-
-# Get all the values from data read.
-def gen_values(data):
-    values = []
-
-    for i in range(0, data.shape[0]):
-        values.append(list(data.iloc[i]))
-
-    return values
+from re import sub
+from mysql.connector import Error, connect
+from mysql.connector.connection import MySQLConnection
+from Config import Config
 
 
-# Build SQL statement.
-def sql_builder(table, tokens, shape):
-    # Current SQL.
-    sql = None
+def _sql_fields(arr: list) -> str:
+    fields_size = len(arr)
 
-    # Length of tokens.
-    tokens_len = len(tokens)
-
-    # Lenght of data. Rows and Columns
-    shape_len = shape
-
-    # Basic 'INSERT INTO' SQL statement.
-    sql_start = "INSERT INTO " + DB_NAME + "." + table
-    sql_fields = " ("
-    sql_values = " VALUES ("
-
-    # Build filed names.
-    for i in range (0, tokens_len):
-        # Append field.
-        sql_fields = sql_fields + tokens[i][0].value
-
-        # Append separator.
-        if (i < tokens_len - 1):
-            sql_fields = sql_fields + ","
-
-    # Append close fields tag.
-    sql_fields = sql_fields + ")"
+    for i in range(0, fields_size, 2):
+        arr.insert(i+1, ",")
     
-    # Append placeholders for values.
-    for j in range (0, shape_len[1]):
-        sql_values = sql_values + "%s"
-        
-        # Append separator.
-        if (j < shape_len[1] - 1):
-            sql_values = sql_values + ","
+    return "".join(arr)
 
-    # Append close values tag.
-    sql_values = sql_values + ");"
 
-    # Build SQL statement.
-    sql = sql_start + sql_fields + sql_values
+# Build SQL string.
+def sql_builder(database, table, fields, values_len) -> str:
+    return f'INSERT INTO {database}.{table} ({_sql_fields(fields)}) VALUES ({sub("%s", "%s,", "".join(["%s"]*values_len))[:-1]});'
 
-    return sql
 
-def exec(sql, data):
+# Create connection.
+def create_connection(config: Config) -> MySQLConnection:
     try:
-        # Create connection to database.
-        cnx = connect(
-            host=DB_HOST,
-            port=DB_PORT,
-            user=DB_USER,
-            password=DB_PASSWORD,
-            database=DB_NAME)
+        return connect(host=config.get("host"), port=config.get("port"), database=config.get("database"), user=config.get("user"), password=config.get("password"))
+    except Exception as ex:
+        print(ex)
+        raise Exception("Unable to connect to database")
+        
 
+# Execute SQL.
+def exec(connection: MySQLConnection, sql: str, data: list):
+    try:
         # Get connection cursor.
-        cursor = cnx.cursor()
+        cursor = connection.cursor()
 
-        # Execute the generated SQL per row of data.
-        for value in gen_values(data):
-            cursor.execute(sql, value)
+        cursor.executemany(sql, data)
 
         # Write changes to database.
-        cnx.commit()
+        connection.commit()
 
         # Close connection.
-        cnx.close()
+        connection.close()
     
     # Catch all errors. Raise 'Unable to write to database' error for 'main.py' to handle.
     except Error as ex:
+        print(ex)
         raise Exception("Unable to write to database.")
