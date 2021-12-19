@@ -1,9 +1,3 @@
-<p align="center">
-	<img src="docs/assets/logo.png" width="200" height="100">
-</p>
-
----
-
 # DataImportTool
 
 ## Description
@@ -107,19 +101,7 @@ Setup config file.
 dit config
 ```
 
-Config with file path and run
-
-```shell
-dit -p <config_file_path> run -m <mock_file_path> -d <data_file_path>
-```
-
-Run with default config (if default config exists)
-
-```shell
-dit run -m <mock_file_path> -d <data_file_path>
-```
-
-or
+Run.
 
 ```shell
 dit run <mock_file_path> <data_file_path>
