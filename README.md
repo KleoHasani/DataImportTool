@@ -1,9 +1,3 @@
-<p align="center">
-	<img src="docs/assets/logo.png" width="200" height="100">
-</p>
-
----
-
 # DataImportTool
 
 ## Description
