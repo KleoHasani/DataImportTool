@@ -19,6 +19,8 @@ Python tool to import data from CSV and XLSX files to MySQL database.
 - [Build](#build)
 - [Usage](#usage)
 - [Test](#test)
+- [Create Executable](#create-executable)
+- [Run Executable](#run-executable)
 
 ---
 
@@ -143,7 +145,7 @@ pytest
   ```
  ---
  
- ## Running Executable
+ ## Run Executable
 
 - unzip folder
  
