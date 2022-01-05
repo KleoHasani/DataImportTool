@@ -118,3 +118,42 @@ pytest
 | File         | Test             | Description | Status   |
 | :----------- | :--------------- | :---------- | :------- |
 | test_true.py | test_always_true | Mock test.  | &#10003; |
+
+---
+
+ ## Create Executable
+ - Windows
+ 
+ ```shell
+ pyinstaller src\main.py
+ ```
+ 
+ check that it's working 
+ 
+  ```shell
+  cd dist
+  ```
+ 
+  ```shell 
+  cd main
+  ```
+ 
+  ```shell
+  main.exe
+  ```
+ ---
+ 
+ ## Running Executable
+
+- unzip folder
+ 
+- run executable from inside folder
+ 
+   ```shell
+   cd path\to\folder
+   ```
+ 
+  ```shell
+  main.exe
+  ```
+ 
