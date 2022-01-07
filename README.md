@@ -97,6 +97,8 @@ pyinstaller -F main.py -n dit --specpath build
 
 ## Usage
 
+Copy dit executable in \"dist\" folder to a folder of your chosing or use the dit executable from there.
+
 Setup config file.
 
 ```shell
