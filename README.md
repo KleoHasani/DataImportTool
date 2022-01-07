@@ -90,7 +90,7 @@ Python tool to import data from CSV and XLSX files to MySQL database.
 ## Build
 
 ```shell
-pip install .
+pyinstaller -F main.py -n dit --specpath build
 ```
 
 ---
@@ -100,13 +100,13 @@ pip install .
 Setup config file.
 
 ```shell
-dit config
+./dit config
 ```
 
 Run.
 
 ```shell
-dit run <mock_file_path> <data_file_path>
+./dit run <mock_file_path> <data_file_path>
 ```
 
 ---
@@ -120,42 +120,3 @@ pytest
 | File         | Test             | Description | Status   |
 | :----------- | :--------------- | :---------- | :------- |
 | test_true.py | test_always_true | Mock test.  | &#10003; |
-
----
-
- ## Create Executable
- - Windows
- 
- ```shell
- pyinstaller src\main.py
- ```
- 
- check that it's working 
- 
-  ```shell
-  cd dist
-  ```
- 
-  ```shell 
-  cd main
-  ```
- 
-  ```shell
-  main.exe
-  ```
- ---
- 
- ## Run Executable
-
-- unzip folder
- 
-- run executable from inside folder
- 
-   ```shell
-   cd path\to\folder
-   ```
- 
-  ```shell
-  main.exe
-  ```
- 
