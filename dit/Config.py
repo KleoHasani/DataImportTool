@@ -1,4 +1,4 @@
-from dataIO import read_config, write_config
+from dit.dataIO import read_config, write_config
 from os import remove
 
 class Config:

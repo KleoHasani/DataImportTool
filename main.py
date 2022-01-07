@@ -1,9 +1,9 @@
 from click import command, argument, confirm, group, style
 from getpass import getpass
-from globals import ascii_logo, ascii_done, DEFAULT_CONFIG_PATH
-from Config import Config
-from dataIO import read_data, read_mock
-from database import create_connection, sql_builder, exec
+from dit.globals import ascii_logo, ascii_done, DEFAULT_CONFIG_PATH
+from dit.Config import Config
+from dit.dataIO import read_data, read_mock
+from dit.database import create_connection, sql_builder, exec
 
 
 # Global config.

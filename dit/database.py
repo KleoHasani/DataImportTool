@@ -1,7 +1,7 @@
 from mysql.connector import Error, connect
 from mysql.connector.connection import MySQLConnection
 from re import sub
-from Config import Config
+from dit.Config import Config
 
 # Generate the fields based on mock file.
 def _sql_fields(arr: list) -> str:
