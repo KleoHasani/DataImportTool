@@ -2,6 +2,7 @@
   <img src="https://media.giphy.com/media/kPrlykW2TpVU4HWx2O/giphy.gif" width="200"/>
 </div>
 
+---
 
 # DataImportTool
 
